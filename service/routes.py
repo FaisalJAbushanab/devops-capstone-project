@@ -29,14 +29,12 @@ def health():
 @app.route("/")
 def index():
     """Root URL response"""
-    return (
-        jsonify(
-            name="Account REST API Service",
-            version="1.0",
+    message = jsonify(
+                name="Account REST API Service",
+                version="1.0")
             # paths=url_for("list_accounts", _external=True),
-        ),
-        status.HTTP_200_OK,
-    )
+    res = make_response(message, status.HTTP_200_OK, {"X-XSS-Protection": '1; mode=block'})
+    return res
 
 
 ######################################################################
