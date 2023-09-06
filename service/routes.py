@@ -29,7 +29,7 @@ def health():
 @app.route("/")
 def index():
     """Root URL response"""
-    message = jsonify(name="Account REST API Service",version="1.0")
+    message = jsonify(name="Account REST API Service", version="1.0")
     res = make_response(message, status.HTTP_200_OK, {"X-XSS-Protection": '1; mode=block'})
     return res
 
